@@ -24,6 +24,8 @@ function createServer(options) {
   options.port = options.port || 9090;
   let server = new Server({port: options.port});
 
+  console.log(`create server port = `, options.port );
+  debug('test')
   process.on('exit', () => {
     debug('Application will exit.');
     // Closing the server will trigger the individual connections to be closed and cleaned.
@@ -43,7 +45,8 @@ function createServer(options) {
     server.on('connection', (ws) => {
       let bridge = new Bridge(node, ws);
       bridgeMap.set(bridge.bridgeId, bridge);
-
+      
+      console.log(`create a bridge id = `, bridge.bridgeId );
       bridge.on('error', (error) => {
         let bridge = error.bridge;
         if (bridge) {

@@ -47,6 +47,7 @@
 
   // Subscribe a Topic
   example.subscribe(function(message) {
+    document.write("nimabi")
     document.getElementById("subscription").innerText = message.data
   });
 
@@ -72,7 +73,7 @@
   </div>
   <div>
     <b>Receive message: </b>
-    <span id="subscription"></span>
+    <p id="subscription"> no message</p>
   </div>
 </body>
 </html>
